@@ -37,25 +37,25 @@ For example:
 
 
 ## Algorithm
-1.Input & Initialization:
+1. Input & Initialization:
 Read number of startups N and budget B.
 Store each startup’s cost (c[]) and profit (p[]).
 Initialize a global variable best = 0 to track the maximum profit 
-2. Sorting by Efficiency:
+2.  Sorting by Efficiency:
 Compute the profit-to-cost ratio (p[i]/c[i]) for each startup.
 Sort startups in descending order of this ratio to improve bound estimation.
-3. Upper Bound Calculation (bound()):
+3.  Upper Bound Calculation (bound()):
 For a given node (index idx), current weight cw, and current value cv:
 Add profits of remaining startups until the budget is filled.
 If the next startup doesn’t fit completely, add a fractional profit proportional to the remaining budget.
 This provides a maximum possible (fractional) profit estimate for pruning.
-4.  Depth-First Search (DFS) with Branch and Bound (dfs()):
+4.   Depth-First Search (DFS) with Branch and Bound (dfs()):
 If the current path exceeds the budget or bound ≤ current best → prune the branch.
 Otherwise, recursively explore:
 Including the current startup (if it fits).
 Excluding the current startup.
 Update best whenever a higher profit is found.
-5.  Output:
+5.   Output:
 After exploring all feasible combinations, print the maximum profit best. 
 
 ## Program:
